@@ -42,19 +42,38 @@ Synthesized successfully using **Xilinx Vivado** targeting the **Virtex-7 FPGA (
 ##  Repository Structure
 
 ```text
-4Bit-Pipelined-CPU/
+SE203511_NguyenPhucBaoKhang_3StagePipelineCPU/
 │
-├── rtl/                  # Verilog source files
-│   ├── cpu_top.v         # Top-level module integrating datapath & control
-│   ├── alu.v             # 4-bit Arithmetic Logic Unit
-│   ├── control_unit.v    # Instruction decoder & control signal generator
-│   └── register_file.v   # 4x4-bit Register File (R0-R3)
+├── 1_SourceCode/
+│   ├── 1_RTL/                  # Verilog source files
+│   │   ├── alu.v               # 4-bit Arithmetic Logic Unit
+│   │   ├── control_unit.v      # Instruction decoder & control signal generator
+│   │   ├── cpu_top.v           # Top-level module integrating datapath & control
+│   │   ├── data_memory.v       
+│   │   ├── flag_register.v     
+│   │   ├── instruction_memory.v
+│   │   ├── instruction_register.v
+│   │   ├── mux.v               
+│   │   ├── pipeline_register.v 
+│   │   ├── program_counter.v   
+│   │   └── register_file.v     # Register File
+│   │
+│   ├── 2_Testbench/            # Simulation testbenches
+│   │   ├── tb_alu.v            
+│   │   ├── tb_control_unit.v   
+│   │   ├── tb_cpu.v            # Comprehensive testbench
+│   │   └── tb_register_file.v  
+│   │
+│   └── 3_Mem/                  # Memory initialization files
+│       ├── prog_arith.mem      
+│       ├── prog_jump.mem       
+│       ├── prog_logic.mem      
+│       └── program.mem         
 │
-├── sim/                  # Simulation testbenches & waveforms
-│   └── tb_cpu.v          # Comprehensive testbench verifying sequential & branch execution
+├── 2_Documents/                # Documentation and schematics
+│   ├── 4Bit CPU datapath.pptx  
+│   └── Screenshots.docx        
 │
-├── docs/                 # Documentation, schematics, and presentation assets
-│   └── vivado_utilization.png
-│
-├── .gitignore            # Excludes Vivado temporary logs and cache (.Xil/, *.jou)
-└── README.md             # Project documentation
+└── 3_VivadoProject/            # Vivado project files
+    ├── 4Bit_3Stage_Pipeline.srcs/
+    └── 4Bit_3Stage_Pipeline.xpr
